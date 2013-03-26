@@ -62,7 +62,8 @@ public class AssociationList<T> implements Association<T> {
     @Override
     public void remove(int index) throws AssociationException {
         try {
-            list.remove(index);
+            // do not remove elements from list to keep index consistent
+            list.set(index, null);
         } catch (IndexOutOfBoundsException e) {
             throw new AssociationException(e);
         }
