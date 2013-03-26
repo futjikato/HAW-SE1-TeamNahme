@@ -9,8 +9,10 @@ public interface Association<T> {
      * Add the given object
      *
      * @param object
+     *
+     * @return index of newly added object
      */
-    public void add(T object);
+    public int add(T object);
 
     /**
      * Get the object on the given index
