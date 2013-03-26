@@ -1,11 +1,22 @@
 package informatik.hawhamburg.theamnahme;
 
 /**
- * Created with IntelliJ IDEA.
- * User: moritzspindelhirn
- * Date: 26.03.13
- * Time: 18:57
- * To change this template use File | Settings | File Templates.
+ * Exception used in Association implementations
  */
-public class AssociationException {
+public class AssociationException extends Exception {
+    public AssociationException(String message) {
+        super(message);
+    }
+
+    public AssociationException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public AssociationException(Throwable cause) {
+        super(cause);
+    }
+
+    public AssociationException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }
