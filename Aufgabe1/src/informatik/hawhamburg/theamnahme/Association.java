@@ -3,16 +3,18 @@ package informatik.hawhamburg.theamnahme;
 /**
  * Interface
  */
-public interface Association<T> {
+public interface Association<T> extends Iterable<T> {
 
     /**
      * Add the given object
      *
      * @param object
      *
+     * @throws AssociationException
+     *
      * @return index of newly added object
      */
-    public int add(T object);
+    public int add(T object) throws AssociationException;
 
     /**
      * Get the object on the given index

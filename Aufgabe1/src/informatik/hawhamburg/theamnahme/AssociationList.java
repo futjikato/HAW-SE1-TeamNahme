@@ -1,6 +1,7 @@
 package informatik.hawhamburg.theamnahme;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -15,10 +16,17 @@ public class AssociationList<T> implements Association<T> {
      *
      * @param object
      *
+     * @throws AssociationException
+     *
      * @return index of added element
      */
     @Override
-    public int add(T object) {
+    public int add(T object) throws AssociationException {
+
+        if(object == null) {
+            throw new AssociationException("Null elements are not allowed to add to the list.");
+        }
+
         list.add(object);
 
         // @todo does this work ? or better use indexOf .. would be more expensive
@@ -67,5 +75,38 @@ public class AssociationList<T> implements Association<T> {
         } catch (IndexOutOfBoundsException e) {
             throw new AssociationException(e);
         }
+    }
+
+    /**
+     * Returns an iterator over a set of elements of type T.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+
+            protected int readCursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return readCursor < AssociationList.this.getSize();
+            }
+
+            @Override
+            public T next() {
+                T elem;
+                do {
+                    elem = AssociationList.this.list.get(readCursor++);
+                } while(elem == null);
+
+                return elem;
+            }
+
+            @Override
+            public void remove() throws UnsupportedOperationException {
+                throw new UnsupportedOperationException("Method not implemented");
+            }
+        };
     }
 }
