@@ -1,4 +1,4 @@
-package informatik.hawhamburg.theamnahme;
+package informatik.hawhamburg.teamnahme;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ public class AssociationList<T> implements Association<T> {
      *
      * @param index
      * @return The requested object
-     * @throws informatik.hawhamburg.theamnahme.AssociationException
+     * @throws informatik.hawhamburg.teamnahme.AssociationException
      *
      */
     @Override

@@ -1,4 +1,4 @@
-package informatik.hawhamburg.theamnahme;
+package informatik.hawhamburg.teamnahme;
 
 /**
  * Exception used in Association implementations

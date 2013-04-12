@@ -1,4 +1,4 @@
-package informatik.hawhamburg.theamnahme;
+package informatik.hawhamburg.teamnahme;
 
 import org.junit.Before;
 import org.junit.Test;
