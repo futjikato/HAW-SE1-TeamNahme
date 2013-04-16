@@ -123,7 +123,7 @@ public class AssociationHashMap<P, E> implements Association<P, E> {
 
             @Override
             public boolean hasNext() {
-                return pa.length >= readCursor;
+                return pa.length != readCursor;
             }
 
             @Override
