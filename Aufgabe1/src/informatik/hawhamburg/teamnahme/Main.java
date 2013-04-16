@@ -4,17 +4,22 @@ public class  Main {
 
     public static void main(String[] args) {
         // ad hoc example usage for AssociationList
-        AssociationList<String> stringAssociationList = new AssociationList<String>();
+        AssociationHashMap<Integer, String> dummy = new AssociationHashMap<Integer, String>();
 
         // add some strings
-        stringAssociationList.add("Object 1");
-        stringAssociationList.add("Object 2");
-        stringAssociationList.add("Object 3");
+        try {
+            dummy.add("Object 1", 1);
+            dummy.add("Object 2", 2);
+            dummy.add("Object 3", 3);
+        } catch (AssociationException e) {
+            e.printStackTrace();
+        }
 
         try {
-            System.out.println(stringAssociationList.get(1));
-            stringAssociationList.remove(0);
-            System.out.println(stringAssociationList.get(1));
+            System.out.println(dummy.get(1));
+            dummy.remove(2);
+            System.out.println(dummy.get(1));
+            System.out.println(dummy.get(3));
         } catch (AssociationException e) {
             e.printStackTrace();
         }

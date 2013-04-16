@@ -28,6 +28,19 @@ public class AssociationHashMap<P, E> implements Association<P, E> {
      */
     @Override
     public Association add(E entity, P primary) throws AssociationException {
+
+        if(storage.containsValue(entity)) {
+            throw new AssociationException("Element already associated. Duplicated elements not allowed.");
+        }
+
+        if(primary == null) {
+            throw new AssociationException("primary key cannot be null.");
+        }
+
+        if(entity == null) {
+            throw new AssociationException("Entity cannot be null.");
+        }
+
         storage.put(primary, entity);
 
         return this;
