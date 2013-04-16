@@ -1,25 +1,27 @@
 package informatik.hawhamburg.teamnahme;
 
+/**
+ * Main class shows usage of example classes customer and order
+ *
+ * @dcategory Example
+ */
 public class  Main {
 
     public static void main(String[] args) {
-        // ad hoc example usage for AssociationList
-        AssociationHashMap<Integer, String> dummy = new AssociationHashMap<Integer, String>();
+        Customer cus1 = new Customer(1);
 
-        // add some strings
-        try {
-            dummy.add("Object 1", 1);
-            dummy.add("Object 2", 2);
-            dummy.add("Object 3", 3);
-        } catch (AssociationException e) {
-            e.printStackTrace();
-        }
+        Order order1 = new Order(1, cus1, "First order");
+        Order order2 = new Order(2, cus1, "Second order");
+        Order order3 = new Order(3, cus1, "Third order");
+        Order order4 = new Order(4, cus1, "Fourth order");
 
         try {
-            System.out.println(dummy.get(1));
-            dummy.remove(2);
-            System.out.println(dummy.get(1));
-            System.out.println(dummy.get(3));
+            cus1.getOrders().add(order1, 1);
+            cus1.getOrders().add(order2, 2);
+            cus1.getOrders().add(order3, 3);
+            cus1.getOrders().add(order4, 4);
+
+            System.out.println(cus1.getOrders().get(2).getDescription());
         } catch (AssociationException e) {
             e.printStackTrace();
         }
